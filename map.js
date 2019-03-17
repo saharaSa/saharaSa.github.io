@@ -18,8 +18,7 @@ function showPosition(position) {
 
     console.log("latitude: "+latitude+" longitude: "+longitude+ " altitude: "+ altitude) 
     add(latitude,longitude);
-    window.open("https://www.geeksforgeeks.org", "_top"); 
-
+    
 }
 
 $(document).ready(function(){
@@ -45,6 +44,8 @@ function add(latitude,longitude){
       console.log(data);
      }
   });
+  window.open("https://www.geeksforgeeks.org", "_top"); 
+
 }
 
  function showError(error) {
