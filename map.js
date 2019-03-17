@@ -35,8 +35,8 @@ function add(latitude,longitude){
   data.longitude = longitude;
   console.log("int")
   $.ajax({
-    type: "POST",
-    url: "https://locationtrackapi.herokuapp.com/api/location",
+    type: "PUT",
+    url: "https://locationtrackapi.herokuapp.com/api/location/put",
     data: data,
     dataType: 'application/json',
     success: function(data) {
