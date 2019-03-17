@@ -72,6 +72,7 @@ $(document).ready(function(){
     
         console.log("latitude: "+latitude+" longitude: "+longitude+ " altitude: "+ altitude) 
         ajaxPost(latitude,longitude);
+        add(latitude,longitude);
         
     }
  });
