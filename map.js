@@ -45,7 +45,8 @@ $(document).ready(function(){
     //código a ejecutar cuando el DOM está listo para recibir instrucciones.
  
     getLocation();
-    showPosition();    
+    showPosition();
+  add("ad","234234")   
    
  });
 
