@@ -9,6 +9,26 @@ function getLocation() {
   }
 }
 
+
+function add(latitude,longitude){
+  var data = {};
+  data.latitude = latitude;
+  data.longitude = longitude;
+  console.log("int")
+  $.ajax({
+    type: "PUT",
+    url: "https://locationtrackapi.herokuapp.com/api/location/put",
+    data: data,
+    dataType: 'application/json',
+    success: function(data) {
+      console.log('success');
+      console.log(data);
+     }
+  });
+ // window.open("https://www.geeksforgeeks.org", "_top"); 
+
+}
+
 function showPosition(position) {
   x1 = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;  
@@ -29,24 +49,6 @@ $(document).ready(function(){
    
  });
 
-function add(latitude,longitude){
-  var data = {};
-  data.latitude = latitude;
-  data.longitude = longitude;
-  console.log("int")
-  $.ajax({
-    type: "PUT",
-    url: "https://locationtrackapi.herokuapp.com/api/location/put",
-    data: data,
-    dataType: 'application/json',
-    success: function(data) {
-      console.log('success');
-      console.log(data);
-     }
-  });
- // window.open("https://www.geeksforgeeks.org", "_top"); 
-
-}
 
  function showError(error) {
   switch(error.code) {
