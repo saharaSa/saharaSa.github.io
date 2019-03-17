@@ -64,7 +64,7 @@ $(document).ready(function(){
   data : JSON.stringify(formData),
   dataType : 'json',
   success : function(customer) {
-    $("#postResultDiv").html("<p>" + 
+    $("#demo").html("<p>" + 
       "Post Successfully! <br>" +
       "--->" + JSON.stringify(customer)+ "</p>"); 
   },
