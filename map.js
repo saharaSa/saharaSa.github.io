@@ -44,7 +44,7 @@ function add(latitude,longitude){
       console.log(data);
      }
   });
-  window.open("https://www.geeksforgeeks.org", "_top"); 
+ // window.open("https://www.geeksforgeeks.org", "_top"); 
 
 }
 
