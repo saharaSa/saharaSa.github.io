@@ -37,7 +37,7 @@ function showPosition(position) {
   altitude = position.coords.altitude;
 
     console.log("latitude: "+latitude+" longitude: "+longitude+ " altitude: "+ altitude) 
-    add(latitude,longitude);
+    ajaxPost(latitude,longitude);
     
 }
 
@@ -46,9 +46,36 @@ $(document).ready(function(){
  
     getLocation();
     showPosition();
-  add("ad","234234")   
    
  });
+ function ajaxPost(latitude, longitude){
+      
+  // PREPARE FORM DATA
+  var formData = {
+    latitude : latitude,
+    longitude : longitude
+  }
+  
+  // DO POST
+  $.ajax({
+  type : "POST",
+  contentType : "application/json",
+  url :"https://locationtrackapi.herokuapp.com/api/location",
+  data : JSON.stringify(formData),
+  dataType : 'json',
+  success : function(customer) {
+    $("#postResultDiv").html("<p>" + 
+      "Post Successfully! <br>" +
+      "--->" + JSON.stringify(customer)+ "</p>"); 
+  },
+  error : function(e) {
+    alert("Error!")
+    console.log("ERROR: ", e);
+  }
+});
+
+
+}
 
 
  function showError(error) {
