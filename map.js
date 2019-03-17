@@ -10,22 +10,41 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x = "Latitude: " + position.coords.latitude + 
+  x1 = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;  
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
   altitude = position.coords.altitude;
 
     console.log("latitude: "+latitude+" longitude: "+longitude+ " altitude: "+ altitude) 
-  
+    add(latitude,longitude);
 
 }
 
 $(document).ready(function(){
     //código a ejecutar cuando el DOM está listo para recibir instrucciones.
+ 
     getLocation();
     showPosition();    
+   
  });
+
+function add(latitude,longitude){
+  var data = {};
+  data.latitude = latitude;
+  data.longitude = longitude;
+  console.log("int")
+  $.ajax({
+    type: "POST",
+    url: "https://locationtrackapi.herokuapp.com/api/location",
+    data: data,
+    dataType: 'application/json',
+    success: function(data) {
+      console.log('success');
+      console.log(data);
+     }
+  });
+}
 
  function showError(error) {
   switch(error.code) {
